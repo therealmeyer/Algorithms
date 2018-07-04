@@ -33,16 +33,17 @@ class DynamicArray
     popped = @store[length-1]
     @store[length-1] = nil 
     @length -= 1
-    return popped
+    popped
   end
 
   # O(1) ammortized; O(n) worst case. Variable because of the possible
   # resize.
   def push(val)
-    resize! if length + 1 > capacity 
+    resize! if length == capacity 
 
     @store[length] = val
     @length += 1 
+    nil
   end
 
   # O(n): has to shift over all the elements.
@@ -63,7 +64,7 @@ class DynamicArray
 
   # O(n): has to shift over all the elements.
   def unshift(val)
-    resize! if length + 1 > capacity
+    resize! if length == capacity
 
     temp = StaticArray.new(capacity)
     temp[0] = val
