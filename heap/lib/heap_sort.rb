@@ -12,3 +12,26 @@ class Array
     self.reverse!
   end
 end
+
+class Array
+  def heap_sort!
+    # Make it a max heap 
+    prc = Proc.new do |el1, el2|
+      -1 * (el1 <=> el2)
+    end 
+
+    pointer = 0 
+    while pointer < self.length
+      BinaryMinHeap.heapify_up(self, pointer, &prc)
+      pointer += 1
+    end 
+    pointer -= 1
+
+    while pointer >= 0
+      self[0], self[pointer] = self[pointer], self[0]
+      pointer -= 1 
+      BinaryMinHeap.heapify_down(self, 0, pointer+1, &prc)
+    end 
+    self 
+  end 
+end

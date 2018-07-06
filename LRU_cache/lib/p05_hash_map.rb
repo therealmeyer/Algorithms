@@ -26,6 +26,7 @@ class HashMap
   end
 
   def get(key)
+    p "hashget: #{bucket(key).get(key)}"
     bucket(key).get(key)
   end
 

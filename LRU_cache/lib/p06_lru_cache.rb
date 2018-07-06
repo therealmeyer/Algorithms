@@ -16,7 +16,8 @@ class LRUCache
 
   def get(key)
     if @map[key]
-      node = @map[key]
+      node = @map.get(key)
+      p node 
       update_node!(node)
       node.val
     else
