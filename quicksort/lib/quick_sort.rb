@@ -14,6 +14,7 @@ class QuickSort
   # In-place.
   def self.sort2!(array, start = 0, length = array.length, &prc)
     return array if length <= 1 
+    # pivot = rand(length) + start
     pivot_idx = QuickSort.partition(array, start, length, &prc)
     
     left_length = pivot_idx - start
