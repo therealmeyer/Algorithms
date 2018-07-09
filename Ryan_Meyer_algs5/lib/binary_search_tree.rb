@@ -34,7 +34,6 @@ class BinarySearchTree
     elsif node.left == nil || node.right == nil 
       delete_one_child(node)
     else 
-      p "Delete both childgren"
       delete_both_children(node)
     end 
 
