@@ -160,7 +160,6 @@ class DynamicProgramming
       end
 
     end
-
     moves
   end
 
@@ -181,6 +180,5 @@ class DynamicProgramming
 
     path
   end
-
 
 end
