@@ -38,7 +38,7 @@ class DynamicProgramming
 
   def frog_cache_builder(n)
     cache = {1 => [[1]], 2=> [[1,1],[2]], 3 => [[1,1,1], [1,2], [2,1], [3]]}
-    return @frog_cache if n < 4
+    return cache if n < 4
     (4..n).each do |i| 
       frog_hops_1 = cache[i-1].map { |arr| arr + [1] }
       frog_hops_2 = cache[i-2].map { |arr| arr + [2] }

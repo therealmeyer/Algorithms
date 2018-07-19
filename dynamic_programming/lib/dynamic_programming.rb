@@ -93,5 +93,32 @@ class DynamicProgramming
   end
 
   def maze_solver(maze, start_pos, end_pos)
+    build_cache(start_pos)
+    solve_maze(maza, start_pos, end_pos)
+    find_path(end_pos)
   end
+
+  def solve_maze(maze, start_pos, end_pos)
+
+
+  end 
+
+
+  def build_cache(start_pos)
+    @maze_cache[start_pos] = nil 
+  end 
+
+  def find_path(end_pos)
+    path = [] 
+    current = end_pos 
+
+    until current.nil? 
+
+  end 
+
+  def get_moves(maze, from_pos)
+    directions = [[0,1], [1m]]
+  end 
+
+
 end

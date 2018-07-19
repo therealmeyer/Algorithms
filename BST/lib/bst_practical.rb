@@ -1,6 +1,5 @@
 require_relative './binary_search_tree'
 
-
 def kth_largest(tree_node, k)
  
   arr = in_order_traversal(tree_node)
@@ -22,4 +21,21 @@ def find(value, tree_node)
   else 
     find(value, tree_node.right)
   end 
+end 
+
+
+def lower_common_ancestor(root, node1, node2)
+  smaller = node1.value > node2.value ? node1.value : node2.value
+  if (root.value < node1.value && root.value < node2.value)
+    lower_common_ancestor(root.right, node1, node2)
+  elsif ()
+
+  return nil unless root.find(node1) || root.find(node2)
+  if (!lower_common_ancestor(root.left, node1, node2))
+    lower_common_ancestor(root.right, node1, node2)
+  else 
+    lower_common_ancestor(root.right, node1, node2)
+  
+
+
 end 
