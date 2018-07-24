@@ -9,7 +9,7 @@ const simpleCalc = (str) => {
     }
   }
   let sum = parseInt(str.slice(0, j));
-  console.log(sum);
+  // console.log(sum);
   let plusMinus; 
   let num = ""; 
   for (let i = j; i < str.length; i++) {
@@ -18,13 +18,14 @@ const simpleCalc = (str) => {
     } else if (str[i] === '-') {
       plusMinus = 0;
     } else {
-        console.log(str[i]);
-        console.log(num);
+        // console.log(str[i]);
+        // console.log(num);
         if (str[i + 1] === '+' || str[i + 1] === '-' || i === str.length-1) {
+          num += str[i];
           plusMinus ? sum += parseInt(num) : sum -= parseInt(num);
           num = "";
         } else {
-          num += str[i]
+          num += str[i];
         }
     }
   }
