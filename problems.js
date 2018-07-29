@@ -274,3 +274,42 @@ def topological_sort(vertices)
 
   order.length == vertices.length ? order : []
 end
+
+// delete from BST
+
+function deleteFromBST(t, queries) {
+  for (let i = 0; i < queries.length; i++) {
+    t = deleteNode(t, queries[i]);
+  }
+  return t;
+}
+
+function deleteNode(t, node) {
+  if (t == null) return null;
+  if (t.value == node) {
+    if (t.left == null && t.right == null) t = null;
+    else if (t.left == null) {
+      t = t.right;
+    } else {
+      let x = max(t.left);
+      x.left = deleteMax(t.left);
+      x.right = t.right;
+      return x;
+    }
+  } else {
+    t.left = deleteNode(t.left, node);
+    t.right = deleteNode(t.right, node);
+  }
+  return t;
+}
+
+function deleteMax(x) {
+  if (x.right == null) return x.left;
+  x.right = deleteMax(x.right);
+  return x;
+}
+
+function max(x) {
+  while (x.right != null) x = x.right;
+  return x;
+}
